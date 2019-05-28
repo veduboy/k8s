@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: commuteviaipc
+spec:
+  containers:
+  - name: producer
+    image: allingeek/ch6_ipc
+    command: ["./ipc", "-producer"]
+  - name: consumer
+    image: allingeek/ch6_ipc
+    command: ["./ipc", "-consumer"]
+  restartPolicy: Never
+
+
+
+  # In the following example, we define a Pod with two containers.
+  # We use the same Docker image for both. The first container, producer, creates a standard Linux message queue, 
+  # writes a number of random messages, and then writes a special exit message.
+  # The second container,  consumer, opens that same message queue for reading and reads messages until it receives the exit message.
+  # We also set the restart policy to ‘Never’, so the Pod stops after termination of both containers.
