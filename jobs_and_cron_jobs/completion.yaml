@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: completion
+spec:
+  completions:  2  # number of job repeat job done 
+  template:
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["echo", "stay happy, enjoy every day"]
+      restartPolicy: Never
+
+
+# with completion means iterate 2 times 

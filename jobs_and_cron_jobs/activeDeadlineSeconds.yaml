@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: completion
+spec:
+  activeDeadlineSeconds:  10  # job doesn't complete in 10 sec pod will terminate 
+  template:
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["sleep", "60"]
+      restartPolicy: Never
+
+

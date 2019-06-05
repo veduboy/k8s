@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: helloworld-cron
+spec:
+  schedule: "*/5 * * * *"  # /5 means every 5 seconds we can also use @hourly @weekly @monthly 
+  concurrencyPolicy: Replace # Forbid /Allow also options where reply represent if another iteration pile up and first one take consume shared space then it will call for yield 
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: busybox
+            image: busybox
+            command: ["echo", "Hello Kubernetes!!!"]
+          restartPolicy: Never

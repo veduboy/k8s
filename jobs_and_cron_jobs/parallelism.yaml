@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: completion
+spec:
+  completions:  10  # number of time iteration 
+  parallelism:  2    # number of time iteration occur i 5 == 10/2
+  template:
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["echo", "stay happy, enjoy every day"]
+      restartPolicy: Never
+
+
+# with completion means iterate 2 times 

@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: completion
+spec:
+  backoffLimit:  10  # number of time allow to fial
+  template:
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["ls", "/not available Folderto Check"]
+      restartPolicy: Never
+
+

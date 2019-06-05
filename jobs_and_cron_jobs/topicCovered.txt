@@ -1,0 +1,38 @@
+Kubernetes Jobs & Cron Jobs
+===========================
+
+
+Jobs:
+
+Default run
+killing pod restarts pod
+completions
+parallelism
+backoutLimit
+activeDeadLineSeconds
+
+
+CronJobs:
+
+Default run 
+Cron wiki @hourly @weekly @monthly 
+deleting cronjobs
+successfullJobHistoryLimit
+failedJobHistoryLimit
+suspendingCRONjobs (kubectl apply, patch)
+concurrencyPolicy (Allow, Forbid & Replace)
+idempotentcy
+
+
+UseCases: 
+
+mySql Backup 
+sending mails
+any backup
+checking out or in sources periodically
+
+
+
+
+
+
