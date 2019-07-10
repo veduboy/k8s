@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: affluent
+spec: 
+  replicas: 2
+  selector: 
+    matchLabels:
+      component:  tool
+  template:
+    metadata:
+      labels:
+        component:  tool
+    spec:
+      containers:
+        - name: fluke
+          image:  registry.au-syd.bluemix.net/temp_namespace/automation-tool-pod:29
+          ports:
+            - containerPort:  9090
+
+

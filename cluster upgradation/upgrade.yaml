@@ -1,0 +1,6 @@
+# kubectl version --short  to get server version on which host machine is currently running 
+
+# kubectl get nodes -o wide (to get current node)
+
+
+  

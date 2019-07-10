@@ -1,0 +1,41 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: demo-hpa
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: affluent
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 10
+
+
+#       The interesting fields here are:
+#         • spec.scaleTargetRef specifies the Deployment to scale
+#         • spec.minReplicas and spec.maxReplicas specify the limits of scaling
+#         • spec.metrics determines the metrics that will be used for scaling
+
+# use any metrics available to Kubernetes, including both the 
+# built-in system metrics like CPU and
+#   • memory usage, and • app-specific service metrics, which you define and export from
+# your application (see Chapter 16). For example, you could scale based on the application
+# error rate.
+
+# reference https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+
+
+
+# Horizontal scaling refers to adjusting the number of replicas of a service
+# to vertical scaling, which makes individual replicas bigger or smaller
+
+# Horizontal Pod Autoscaler (HPA) watches a specified Deployment, constantly
+# monitoring a given metric to see if it needs to scale the number of replicas up or down
+# most common autoscaling metrics is CPU utilization
+# you could create an HPA that targets 80% CPU utilization for the Pods
