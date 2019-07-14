@@ -9,7 +9,7 @@ spec:
       containers:
       - name: busybox
         image: busybox
-        command: ["ls", "/not available Folderto Check"]
+        command: ["ls", "/not available Folder to Check"]
       restartPolicy: Never
 
 
