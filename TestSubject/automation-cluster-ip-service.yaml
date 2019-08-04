@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: automation-cluster-ip-service
+spec: 
+  type: ClusterIP
+  selector: 
+    component: tool
+  ports: 
+    - port: 9090
+      targetPort: 9090

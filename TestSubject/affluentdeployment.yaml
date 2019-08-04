@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: affluent
 spec: 
-  replicas: 2
+  replicas: 10
   selector: 
     matchLabels:
-      component:  tool
+      component:  testsubject
   template:
     metadata:
       labels:
-        component:  tool
+        component:  testsubject
     spec:
       containers:
         - name: fluke
-          image:  registry.au-syd.bluemix.net/temp_namespace/automation-tool-pod:29
+          image:  registry.au-syd.bluemix.net/temp_namespace/automation-tool-pod:34
           ports:
             - containerPort:  9090
 
